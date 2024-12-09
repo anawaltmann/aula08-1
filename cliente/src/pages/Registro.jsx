@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Registrar() {
 const [Nome, setNome] = useState("");
@@ -11,10 +12,10 @@ const registro = async () => {
   try{
     const resposta = await fetch('http://localhost:3000/usuarios', {
       method: 'POST',
-      headers: {' Content-Type': 'Application/json'},
+      headers: {'Content-Type': 'Application/json'},
       body: JSON.stringify({
-        Nome: Nome,
-        Email: Email
+        nome: Nome,
+        email: Email
       })
     });
     if(resposta.ok){
